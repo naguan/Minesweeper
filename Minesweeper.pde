@@ -135,7 +135,6 @@ public class MSButton
     } else if (countBombs(r, c)>0)
     {
       label = label + countBombs(r, c);
-      println("label");
     } else
     {
       for (int i=-1; i<2; i++)
