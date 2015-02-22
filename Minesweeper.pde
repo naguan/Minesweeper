@@ -27,7 +27,7 @@ void setup ()
 }
 public void setBombs()
 {
-  int numBombs = (Math.random()*20)+20;
+  double numBombs = (Math.random()*20)+20;
   for (int i = 0; i < numBombs; i++)
   {
     int row = (int)(Math.random()*NUM_ROWS);
@@ -132,10 +132,12 @@ public class MSButton
     else if (bombs.contains(this))
     {
       displayLosingMessage();
-    } else if (countBombs(r, c)>0)
+    } 
+    else if (countBombs(r, c)>0)
     {
-      setLabel(""+countBombs(r,c));
-    } else
+      setLabel( "" + countBombs(r,c) );
+    } 
+    else
     {
       for (int i=-1; i<2; i++)
       {
