@@ -12,8 +12,7 @@ void setup ()
   // make the manager
   Interactive.make( this );
   buttons = new MSButton[NUM_ROWS][NUM_COLS];
-  bombs = new ArrayList<MSButton>(); 
-
+  
   for (int r = 0; r < NUM_ROWS; r++)
   {
     for (int c = 0; c < NUM_COLS; c++)
@@ -21,13 +20,12 @@ void setup ()
       buttons[r][c] = new MSButton(r, c );
     }
   }
-
-  //declare and initialize buttons
+  bombs = new ArrayList<MSButton>(); 
   setBombs();
 }
 public void setBombs()
 {
-  double numBombs = (Math.random()*20)+20;
+  int numBombs = (int)(Math.random()*20)+20;
   for (int i = 0; i < numBombs; i++)
   {
     int row = (int)(Math.random()*NUM_ROWS);
@@ -47,24 +45,17 @@ public void draw ()
 }
 public boolean isWon()
 {
-  int markBombs= 0;
+  int count = 0;
   for (int i=0; i<bombs.size (); i++)
   {
     if (bombs.get(i).isMarked())
     {
-      markBombs++;
+      count++;
     }
   }
-  if (markBombs==bombs.size())
+  if (count==bombs.size())
   {
     return true;
-  }
-  for (int i=0; i<bombs.size (); i++)
-  {
-    if (bombs.get(i).isClicked())
-    {
-      displayLosingMessage();
-    }
   }
   return false;
 }
@@ -129,7 +120,30 @@ public class MSButton
       clicked = true;
     if (mouseButton == RIGHT)
       marked = !marked;
-    
+    else if (bombs.contains(this))
+    {
+      displayLosingMessage();
+    } 
+    else if (countBombs(r, c)>0)
+    {
+      setLabel( "" + countBombs(r,c) );
+    } 
+    else
+    {
+      for (int i=-1; i<2; i++)
+      {
+        for (int j=-1; j<2; j++)
+        {
+          if (isValid(r+i, c+j)==true)
+          {
+            if (buttons[r+i][c+j].isClicked()==false)
+            {
+              buttons[r+i][c+j].mousePressed();
+            }
+          }
+        }
+      }
+    }
   }
   public void draw () 
   {    
@@ -162,7 +176,6 @@ public class MSButton
         if (isValid(row + i, col + j))
           if (bombs.contains(buttons[row+i][col+j]))
             numBombs++;
-
     return numBombs;
   }
 }
