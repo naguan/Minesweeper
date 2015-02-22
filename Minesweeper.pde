@@ -175,7 +175,7 @@ public class MSButton
     int numBombs = 0;
     for ( int i = -1; i<2; i++)
       for (int j = -1; j<2; j++)
-        if (isValid(row + i, col + j) && !((row + i == row) && (col + j == col)))
+        if (isValid(row + i, col + j)))
           if (bombs.contains(buttons[row+i][col+j]))
             numBombs++;
     return numBombs;
