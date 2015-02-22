@@ -46,14 +46,14 @@ public void draw ()
 public boolean isWon()
 {
   int count = 0;
-  for (MSButton bomb: bombs)
+  for (int i=0; i<bombs.size (); i++)
   {
-    if (bomb.isMarked())
+    if (bombs.get(i).isMarked())
     {
       count++;
     }
   }
-  if (count==bombs.size())
+  if (count == bombs.size())
   {
     return true;
   }
@@ -115,8 +115,8 @@ public class MSButton
   // called by manager
   public void mousePressed () 
   {
-    if (mouseButton == LEFT)
-      clicked = true;
+    
+    
     if (mouseButton == RIGHT)
       marked = !marked;
     else if (bombs.contains(this))
@@ -128,7 +128,9 @@ public class MSButton
       setLabel( "" + countBombs(r,c) );
     } 
     else
+    if(!clicked)
     {
+      clicked = true;
       for (int i=-1; i<2; i++)
       {
         for (int j=-1; j<2; j++)
@@ -143,6 +145,7 @@ public class MSButton
         }
       }
     }
+    clicked = true;
   }
   public void draw () 
   {    
