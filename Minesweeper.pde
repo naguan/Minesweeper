@@ -50,7 +50,7 @@ public boolean isWon()
   int markBombs= 0;
   for (int i=0; i<bombs.size (); i++)
   {
-    if (bombs.get(i).isMarked()==true)
+    if (bombs.get(i).isMarked())
     {
       markBombs++;
     }
@@ -61,7 +61,7 @@ public boolean isWon()
   }
   for (int i=0; i<bombs.size (); i++)
   {
-    if (bombs.get(i).isClicked()==true)
+    if (bombs.get(i).isClicked())
     {
       displayLosingMessage();
     }
