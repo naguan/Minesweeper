@@ -46,9 +46,9 @@ public void draw ()
 public boolean isWon()
 {
   int count = 0;
-  for (int i=0; i<bombs.size (); i++)
+  for (MSButton bomb: bombs)
   {
-    if (bombs.get(i).isMarked())
+    if (bomb.isMarked())
     {
       count++;
     }
@@ -65,25 +65,24 @@ public void displayLosingMessage()
   {
     bombs.get(i).isClicked();
   }
-  buttons[6][6].setLabel("Y");
-  buttons[6][7].setLabel("O");
-  buttons[6][8].setLabel("U");
-  buttons[6][9].setLabel(" ");
-  buttons[6][10].setLabel("L");
-  buttons[6][11].setLabel("O");
-  buttons[6][12].setLabel("S");
-  buttons[6][13].setLabel("E");
+  buttons[7][6].setLabel("Y");
+  buttons[7][7].setLabel("O");
+  buttons[7][8].setLabel("U");
+  buttons[7][9].setLabel(" ");
+  buttons[7][10].setLabel("L");
+  buttons[7][11].setLabel("O");
+  buttons[7][12].setLabel("S");
+  buttons[7][13].setLabel("E");
 }
 public void displayWinningMessage()
 {
-  buttons[6][6].setLabel("Y");
-  buttons[6][7].setLabel("O");
-  buttons[6][8].setLabel("U");
-  buttons[6][9].setLabel(" ");
-  buttons[6][10].setLabel("W");
-  buttons[6][11].setLabel("I");
-  buttons[6][12].setLabel("N");
-  buttons[6][13].setLabel("!");
+  buttons[7][6].setLabel("Y");
+  buttons[7][7].setLabel("O");
+  buttons[7][8].setLabel("U");
+  buttons[7][9].setLabel(" ");
+  buttons[7][10].setLabel("W");
+  buttons[7][11].setLabel("I");
+  buttons[7][12].setLabel("N");
 }
 
 public class MSButton
