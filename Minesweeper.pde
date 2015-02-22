@@ -74,25 +74,25 @@ public void displayLosingMessage()
   {
     bombs.get(i).isClicked();
   }
-  buttons[6][6].setLabel("Y");
+  /*buttons[6][6].setLabel("Y");
   buttons[6][7].setLabel("O");
   buttons[6][8].setLabel("U");
   buttons[6][9].setLabel(" ");
   buttons[6][10].setLabel("L");
   buttons[6][11].setLabel("O");
   buttons[6][12].setLabel("S");
-  buttons[6][13].setLabel("E");
+  buttons[6][13].setLabel("E");*/
 }
 public void displayWinningMessage()
 {
-  buttons[6][6].setLabel("Y");
+  /*buttons[6][6].setLabel("Y");
   buttons[6][7].setLabel("O");
   buttons[6][8].setLabel("U");
   buttons[6][9].setLabel(" ");
   buttons[6][10].setLabel("W");
   buttons[6][11].setLabel("I");
   buttons[6][12].setLabel("N");
-  buttons[6][13].setLabel("!");
+  buttons[6][13].setLabel("!");*/
 }
 
 public class MSButton
