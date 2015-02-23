@@ -61,10 +61,6 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
-  for (int i=0; i<bombs.size (); i++)
-  {
-    bombs.get(i).isClicked();
-  }
   buttons[7][6].setLabel("Y");
   buttons[7][7].setLabel("O");
   buttons[7][8].setLabel("U");
